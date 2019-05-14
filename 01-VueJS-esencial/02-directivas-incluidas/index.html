@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js</title>
+</head>
+
+<body>
+    <main>
+        <!-- v-show cambia la propiedad display por none -->
+        <!-- <h1 v-show="connected">Estoy conectado</h1> -->
+
+        <!-- v-if elimina el elemento del DOM -->
+        <h1 v-if="connected">Estoy conectado</h1>
+
+        <h2 v-if="age < 18">No puedes entrar.</h2>
+
+        <h2 v-else-if="age > 200">Eres inmortal.</h2>
+
+        <h2 v-else>Puedes entrar</h2>
+
+        <template v-if="connected">
+            <h3>Bienvenido Juan</h3>
+            <ul>
+                <li>
+                    <a href="#">Mis datos</a>
+                    <a href="#">Mensajes</a>
+                    <a href="#">Salir</a>
+                </li>
+            </ul>
+        </template>
+
+        <h4 v-else>
+            No estás conectado
+        </h4>
+
+        <pre>{{$data}}</pre>
+
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.1/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
