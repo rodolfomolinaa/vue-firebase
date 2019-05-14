@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <title>Vue.js</title>
+    <style>
+        /* Transition  */
+        .aparecer-enter {
+            opacity: 0;
+        }
+
+        .aparecer-enter-active {
+            transition: opacity 1s;
+        }
+
+        .aparecer-leave-to {
+            opacity: 0;
+        }
+
+        .aparecer-leave-active {
+            transition: opacity 1s;
+        }
+
+        /* Animation */
+        .bote-enter-active {
+            animation: bounce-in .5s;
+        }
+
+        .bote-leave-active {
+            animation: bounce-in .5s reverse;
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0);
+            }
+
+            50% {
+                transform: scale(1.5);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <button @click="mostrar = !mostrar">Mostrar/Ocultar</button>
+
+        <!-- Transition -->
+        <transition name="aparecer" appear>
+            <h1 v-if="mostrar" v-text="mensajes.transition"></h1>
+        </transition>
+
+        <!-- Animation -->
+        <transition name="bote">
+            <h1 v-if="mostrar" v-text="mensajes.animation"></h1>
+        </transition>
+
+        <!-- Animate.css -->
+        <transition 
+            name="animate.css" 
+            enter-active-class="animated rotateInUpLeft"
+            leave-active-class="animated zoomOutUp">
+            <h1 v-if="mostrar" v-text="mensajes.animationCustom"></h1>
+        </transition>
+
+        <!-- Transition entre diferentes elementos -->
+        <transition name="aparecer" modo="out-in">
+            <h1 v-if="mostrar" v-text="mensajes.entreElementos" key="aparecer"></h1>
+            <h1 v-else key="ocultar">No hay mensaje</h1>
+        </transition>
+        <pre> {{ $data }} </pre>
+    </main>
+
+    <script src="https://unpkg.com/vue@2.6.1/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

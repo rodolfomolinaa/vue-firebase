@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Vue.js</title>
+</head>
+
+<body>
+    <main>
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="data">
+                <li>
+                    <h1>{{data.title}}</h1>
+                </li>
+            </template>
+        </mis-tareas>
+
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="data">
+                <li>{{data.title}}</li>
+            </template>
+        </mis-tareas>
+
+        <mis-tareas :listado="tareas">
+            <template slot="tarea" scope="data">
+                <li>🐶{{data.title}}</li>
+            </template>
+        </mis-tareas>
+
+        <pre> {{ $data }} </pre>
+    </main>
+
+    <!-- Template -->
+    <template id="mis-tareas-template">
+        <ul>
+            <slot name="tarea" v-for="tarea in listado" :title="tarea.titulo"></slot>
+            <!-- <li v-for="tarea in listado">
+                {{tarea.titulo}}
+            </li> -->
+        </ul>
+    </template>
+    <script src="https://unpkg.com/vue@2.6.1/dist/vue.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
