@@ -1,4 +1,4 @@
-# 11-redirect-alis
+# 12-passing-props
 
 ## Project setup
 ```
