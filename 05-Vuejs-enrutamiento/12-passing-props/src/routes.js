@@ -38,9 +38,9 @@ export const routes = [
     //     component: Contacto
     // },
     {
-        path: '/contacto/:id',
+        path: '/contacto/',
         name: 'contacto',
         component: Contacto,
-        props: true
+        props: {newsletter:true}
     }
 ]

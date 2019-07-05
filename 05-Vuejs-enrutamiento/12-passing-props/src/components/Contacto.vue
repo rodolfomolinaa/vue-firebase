@@ -6,7 +6,8 @@
         <h5> {{ newsletter }} </h5>
 
         <!-- <template v-if="$route.params.newsletter === 'true'"> -->
-        <template v-if="newsletter === 'true'">
+        <!-- <template v-if="newsletter === 'true'"> -->
+        <template v-if="newsletter">
             <form action>
                 <h3>Newsletter</h3>
                 <label for="correo">Correo</label>
